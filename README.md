@@ -12,10 +12,10 @@ Dapat membantu pengguna memantau dan meningkatkan kualitas tidur agar meningkatk
 Bagian laporan ini mencakup:
 
 ### Problem Statements
-Bagaimana produktivitas seseorang dapat mengganggu kualitas tidur dan pola tidur seseorang sehingga sulit untuk menentukan jam tidur yang cukup.
+Bagaimana kualitas tidur dan pola tidur seseorang dapat mengganggu kualitas tidur sehingga sulit untuk mendapatkan kualitas tidur yang bagus.
 
 ### Goals
-Menetapkan standar jam tidur yang cukup berdasarkan produktivitas kerja yang optimal dan kesehatan fisik serta mental.
+Menetapkan standar kualitas tidur yang cukup berdasarkan produktivitas kerja yang optimal dan kesehatan fisik serta mental.
 
 ### Solution statements
 - Membangun platform digital yang berbasis web untuk memantau pola tidur individu, menganalisis data produktivitas kerja, dan menggabungkannya dengan informasi kesehatan fisik dan mental untuk menetapkan standar jam tidur yang cukup.
@@ -268,7 +268,7 @@ pickle.dump(lr,open(filename,'wb'))
 
 ## Evaluation
 
-Pada bagian ini saya menggunakan akurasi sebagai Metric evaluasi.
+Pada bagian ini saya menggunakan R^2_score sebagai Metric evaluasi.
 - Akurasi digunakan untuk mengukur seberapa baik model memprediksi nilai aktual atau kelas target dalam suatu dataset. Akurasi dapat dihitung dengan rumus : <br>
 ![Alt text](Image13.png)<br>
 - Setelah itu saya menerapkannya dalam kode menggunakan fungsi R^2_score, sebagai berikut :
