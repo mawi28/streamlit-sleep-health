@@ -289,3 +289,7 @@ print("R-squared (R^2):", r_squared)
 ```
 Nilai R-squared sekitar 0.9115004951252951 menunjukkan bahwa sekitar 91.15% variasi dalam variabel target ("Quality of Sleep") dapat dijelaskan oleh fitur-fitur yang telah dimodelkan. Nilai R-squared yang tinggi (mendekati 1) menunjukkan bahwa model Anda sangat baik dalam menjelaskan variasi dalam data. Model ini cocok dengan data dengan sangat baik dan memiliki kemampuan prediksi yang tinggi untuk variabel target "Quality of Sleep" berdasarkan fitur-fitur yang digunakan.
 
+## Deployment
+
+[Quality of Sleep App](https://app-sleep-health-zrvj9hyk72wk6cmzhjnkwr.streamlit.app/)
+![Alt text](Image14.png)
