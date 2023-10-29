@@ -269,9 +269,9 @@ pickle.dump(lr,open(filename,'wb'))
 ## Evaluation
 
 Pada bagian ini saya menggunakan akurasi sebagai Metric evaluasi.
-- Akurasi digunakan untuk mengukur seberapa baik model memprediksi nilai aktual atau kelas target dalam suatu dataset. Akurasi dapat dihitung dengan rumus :
+- Akurasi digunakan untuk mengukur seberapa baik model memprediksi nilai aktual atau kelas target dalam suatu dataset. Akurasi dapat dihitung dengan rumus : <br>
 ![Alt text](Image13.png)<br>
-- Setelah itu saya menerapkannya dalam kode menggunakan fungsi akurasi, sebagai berikut :
+- Setelah itu saya menerapkannya dalam kode menggunakan fungsi R^2_score, sebagai berikut :
 ```bash
 from sklearn.metrics import r2_score
 
