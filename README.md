@@ -4,7 +4,7 @@
 ### Kelas : IF Pagi A
 
 ## Domain Proyek
-Proyek ini dapat melakukan analisis terhadap pola tidur dan kualitas tidur. agar kita dapat waktu tidur yang cukup dengan mengidentifikasi faktor-faktor yang mempengaruhi kualitas tidur, seperti durasi tidur, waktu tidur, atau aktivitas sebelum tidur.
+Proyek ini dapat melakukan analisis terhadap pola tidur dan kualitas tidur. agar kita dapat mengetahui kualitas tidur dengan mengidentifikasi faktor-faktor yang mempengaruhi kualitas tidur, seperti durasi tidur, profesi, tingkat stress, waktu tidur, atau aktivitas sebelum tidur.
 
 ## Business Understanding
 Dapat membantu pengguna memantau dan meningkatkan kualitas tidur agar meningkatkan produktivitas dalam kegiatan sehari-hari.
@@ -80,8 +80,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
 ```
 
 selanjutnya kita masukkan file csv yang telah diextract pada sebuah variabel
@@ -268,8 +266,8 @@ pickle.dump(lr,open(filename,'wb'))
 
 ## Evaluation
 
-Pada bagian ini saya menggunakan R^2_score sebagai Metric evaluasi.
-- Akurasi digunakan untuk mengukur seberapa baik model memprediksi nilai aktual atau kelas target dalam suatu dataset. Akurasi dapat dihitung dengan rumus : <br>
+Pada bagian ini saya menggunakan R^2 score sebagai Metric evaluasi.
+- Akurasi digunakan untuk mengukur seberapa baik model memprediksi nilai aktual atau kelas target dalam suatu dataset. R^2 score dapat dihitung dengan rumus : <br>
 ![Alt text](Image13.png)<br>
 - Setelah itu saya menerapkannya dalam kode menggunakan fungsi R^2_score, sebagai berikut :
 ```bash
