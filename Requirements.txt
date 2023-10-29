@@ -1,5 +1,7 @@
-numpy
-pandas
-scikit-learn
+numpy==1.23.3
+pandas==2.1.1
 streamlit
+pickle
+scikit-learn
+pip==22.2.2
 matplotlib
