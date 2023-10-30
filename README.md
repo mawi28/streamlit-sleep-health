@@ -48,13 +48,13 @@ untuk data yang digunakan saya menggunakan dataset dengan nama Sleep Health and 
 ### Data Discovery and Profiling
 Karena kita menggunakan google colab maka kita harus mengimport file dan mengupload token yang di download dari kaggle terlebih dahulu agar kita bisa mendownload file dataset dari kaggle melalui google.colab
 
-```bash
+```python
 from google.colab import files
 files.upload()
 ```
 Setelah mengupload token, selanjutnya kita akan membuat folder untuk menyimpan file kaggle.json yang sudah diupload
 
-```bash
+```python
 !mkdir -p ~/.kaggle
 !cp kaggle.json ~/.kaggle/
 !chmod 600 ~/.kaggle/kaggle.json
@@ -62,20 +62,20 @@ Setelah mengupload token, selanjutnya kita akan membuat folder untuk menyimpan f
 ```
 Setelah berhasil, langkah selanjutnya kita download datasetnya
 
-```bash
+```python
 !kaggle datasets download -d uom190346a/sleep-health-and-lifestyle-dataset
 ```
 
 kita extract file yang telah di download tadi
 
-```bash
+```python
 !mkdir sleep-health-and-lifestyle-dataset
 !unzip sleep-health-and-lifestyle-dataset.zip -d sleep-health-and-lifestyle-dataset
 !ls sleep-health-and-lifestyle-dataset
 ```
 setelah proses extract selesai, mari kita import library yang dibutuhkan
 
-```bash
+```python
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -84,18 +84,18 @@ import seaborn as sns
 
 selanjutnya kita masukkan file csv yang telah diextract pada sebuah variabel
 
-```bash
+```python
 df= pd.read_csv('sleep-health-and-lifestyle-dataset/Sleep_health_and_lifestyle_dataset.csv')
 ```
 
 lalu kita lihat 5 baris teratas pada dataset kita
 
-```bash
+```python
 df.head()
 ```
 Selanjutnya mari kita lihat type data pada masing-masing kolom yang ada di dataset kita
 
-```bash
+```python
 df.info()
 ```
 ![Alt text](Image1.png)<br>
@@ -103,13 +103,13 @@ Berdasarkan data diatas, kita dapat menyimpulkan bahwa Age, Sleep duration, Phys
 <br>
 Selanjutnya kita akan memeriksa apakah terdapat baris yang kosong atau null pada dataset kita dengan menggunakan seaborn
 
-```bash
+```python
 sns.heatmap(df.isnull())
 ```
 ![Alt text](Image2.png)<br>
 jika data sudah aman maka kita lanjut dengan data exploration kita
 
-```bash
+```python
 plt.figure(figsize=(10,8))
 sns.heatmap(df.corr(), annot=True)
 ```
@@ -117,40 +117,40 @@ sns.heatmap(df.corr(), annot=True)
 
 selanjutnya, kita akan melihat jumlah nilai dari beberapa kolom kategorikal satu per satu.<br>
 
-```bash
+```python
 df.iloc[:,[1]].value_counts()
 ```
 ![Alt text](Image4.png)<br>
 data diatas menunjukkan bahwa dari 374 catatan orang yang berbeda, 189 adalah Pria dan 185 adalah Wanita.<br>
 
 selanjutnya kita akan melihat jumlah orang sesuai dengan profesinya masing-masing
-```bash
+```python
 df.iloc[:,[3]].value_counts()
 ```
 ![Alt text](Image5.png)<br>
 data diatas menunjukkan jumlah masing-masing orang dari berbagai profesi. Sebagai contoh, dari 374 catatan orang dalam dataset, 73 orang adalah perawat, diikuti oleh 71 dokter, dan seterusnya.
 
-```bash
+```python
 df.iloc[:,[5]].value_counts()
 ```
 ![Alt text](Image6.png)<br>
 
 Data diatas menunjukkan Sebanyak 109/374 orang menilai kualitas tidur mereka adalah 8, diikuti oleh 105 orang yang menilai kualitas tidur mereka adalah 6 dan seterusnya.
 
-```bash
+```python
 df.iloc[:,[8]].value_counts()
 ```
 ![Alt text](Image7.png)<br>
 BMI category, yang merupakan indikator yang baik untuk kesehatan seseorang. Orang dengan BMI normal, umumnya diasumsikan lebih sehat dibandingkan dengan mereka yang memiliki BMI lebih tinggi. Melihat data BMI diatas, kita melihat bahwa ada dua label yang berbeda untuk orang dengan kategori BMI normal, disini kita akan mengubahnya menjadi Normal.<br>
 
-```bash
+```python
 df.loc[df['BMI Category']=='Normal Weight',['BMI Category']] = 'Normal'
 df.iloc[:,[8]].value_counts()
 ```
 ![Alt text](Image8.png)<br>
 Setelah diubah,  dapat dilihat bahwa sebanyak 216 dari 374 orang memiliki BMI Normal, diikuti oleh 148 orang yang kelebihan berat badan dan 10 orang sisanya mengalami Obesitas.
 
-```bash
+```python
 (df.iloc[:,[12]].value_counts()/df.iloc[:,[12]].value_counts().sum())*100
 ```
 ![Alt text](Image9.png)<br>
@@ -158,10 +158,10 @@ dari data diatas, kita melihat bahwa sekitar 41% orang menderita Sleep Apnea dan
 <br>
 
 untuk tahap selanjutnya Mari kita lihat variasi Durasi Tidur dan Kualitas Tidur berdasarkan profesi.
-```bash
+```python
 df1 = df.groupby('Occupation')[['Quality of Sleep','Sleep Duration']].mean().sort_values(by=['Quality of Sleep'])
 ```
-```bash
+```python
 ax = plt.subplot(1,1,1)
 x = pd.Series(df1.index,dtype='category')
 ax.scatter(x,y=df1['Sleep Duration'].to_numpy(),marker='^')
@@ -182,10 +182,10 @@ Dari plot di atas, kita dapat menyimpulkan beberapa poin di bawah ini:
 <br>
 Selanjutnya, Mari kita lihat Kualitas tidur berdasarkan tingkat aktivitas fisik dan tingkat stress
 
-```brash
+```python
 df2 = df.groupby('Quality of Sleep')[['Physical Activity Level','Stress Level']].mean()
 ```
-```brash
+```python
 ax = plt.subplot(1,1,1)
 x = df2.index
 ax.scatter(x,df2['Physical Activity Level'].to_numpy()/10,marker='o')
@@ -204,7 +204,7 @@ Dari diagram di atas, kita memiliki kualitas tidur di sepanjang sumbu x. Aktivit
 
 
 Untuk selanjutnya kita akan membuat distribusi dari Quality of Sleep
-```brash
+```python
 plt.figure(figsize=(15,5))
 sns.distplot(df['Quality of Sleep'])
 ```
@@ -216,7 +216,7 @@ untuk tahap selanjutnya yaitu tahap modeling.
 ## Modeling
 Langkah pertama adalah seleksi fitur, kita akan memilih kolom apa yang dijadikan fitur dan kolom apa yang dijadikan target.
 
-```bash
+```python
 features = ['Person ID', 'Age',	'Sleep Duration',	'Physical Activity Level',	'Stress Level',	'Heart Rate',	'Daily Steps']
 x = df[features]
 y = df['Quality of Sleep']
@@ -225,7 +225,7 @@ x.shape, y.shape
 untuk hasilnya kita mendapatkan 374 baris 7 kolom untuk fitur dan 374 baris 1 kolom untuk target
 
 Tahap berikutnya kita akan melakukan split data, kita masukkan library dan kodenya
-```bash
+```python
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x,y,random_state=70)
 y_test.shape
@@ -233,7 +233,7 @@ y_test.shape
 setelah kita split dari 394 data kita ambil 94 data untuk data testingnya.
 
 Selanjutnya kita akan membuat model untuk regresi liniernya
-```bash
+```python
 from sklearn.linear_model import LinearRegression
 lr = LinearRegression()
 lr.fit(x_train,y_train)
@@ -241,14 +241,14 @@ pred = lr.predict(x_test)
 ```
 
 jika sudah kita melihat akurasi dari model kita
-```bash
+```python
 score = lr.score(x_test, y_test)
 print('akurasi model regresi linier = ', score)
 ```
 untuk akurasi model regresi linier yang kita dapatkan yaitu 0.8707745033453198 atau 87%.
 
 Selanjutnya kita akan Membuat inputan model regresi linier
-```bash
+```python
 #Person ID= 8, Age=32, Sleep Duration=6.1, Physical Activity Level=42, stress level=8, heart rate=85, daily steps=4200
 input_data = np.array([[8,32,6.1,42,8,85,4200]])
 
@@ -257,7 +257,7 @@ print('Tingkat kualitas tidur :', prediction)
 ```
 jika sudah berhasil maka kita akan menyimpan model yang telah kita buat
 
-```bash
+```python
 import pickle
 
 filename ='kualitas_tidur.sav'
@@ -270,7 +270,7 @@ Pada bagian ini saya menggunakan R^2 score sebagai Metric evaluasi.
 - R^2 score digunakan untuk mengukur seberapa baik model memprediksi nilai aktual atau kelas target dalam suatu dataset. R^2 score dapat dihitung dengan rumus : <br>
 ![Alt text](Image13.png)<br>
 - Setelah itu saya menerapkannya dalam kode menggunakan fungsi R^2_score, sebagai berikut :
-```bash
+```python
 from sklearn.metrics import r2_score
 
 features = ['Person ID', 'Age', 'Sleep Duration', 'Physical Activity Level', 'Stress Level', 'Heart Rate', 'Daily Steps']
