@@ -3,7 +3,7 @@ import streamlit as st
 
 model = pickle.load(open('kualitas_tidur.sav','rb'))
 
-st.title('Estimasi kualitas tidur sesuai dengan gaya hidup')
+st.title('Menilai kualitas tidur sesuai dengan gaya hidup')
 
 Person_ID = st.number_input('Masukkan ID 1-374', 0, 100)
 Age = st.number_input('Masukkan Umur', 0, 100)
