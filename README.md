@@ -267,7 +267,7 @@ pickle.dump(lr,open(filename,'wb'))
 ## Evaluation
 
 Pada bagian ini saya menggunakan R^2 score sebagai Metric evaluasi.
-- Akurasi digunakan untuk mengukur seberapa baik model memprediksi nilai aktual atau kelas target dalam suatu dataset. R^2 score dapat dihitung dengan rumus : <br>
+- R^2 score digunakan untuk mengukur seberapa baik model memprediksi nilai aktual atau kelas target dalam suatu dataset. R^2 score dapat dihitung dengan rumus : <br>
 ![Alt text](Image13.png)<br>
 - Setelah itu saya menerapkannya dalam kode menggunakan fungsi R^2_score, sebagai berikut :
 ```bash
