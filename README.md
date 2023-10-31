@@ -249,8 +249,8 @@ untuk akurasi model regresi linier yang kita dapatkan yaitu 0.894147363457703 at
 
 Selanjutnya kita akan Membuat inputan model regresi linier
 ```python
-#Person ID= 8, Age=32, Sleep Duration=6.1, Physical Activity Level=42, stress level=8, heart rate=85, daily steps=4200
-input_data = np.array([[8,32,6.1,42,8,85,4200]])
+#Age=32, Sleep Duration=6.1, Physical Activity Level=42, stress level=8, heart rate=85, daily steps=4200
+input_data = np.array([[32,6.1,42,8,85,4200]])
 
 prediction = lr.predict(input_data)
 print('Tingkat kualitas tidur :', prediction)
