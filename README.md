@@ -245,7 +245,7 @@ jika sudah kita melihat akurasi dari model kita
 score = lr.score(x_test, y_test)
 print('akurasi model regresi linier = ', score)
 ```
-untuk akurasi model regresi linier yang kita dapatkan yaitu 0.8707745033453198 atau 87%.
+untuk akurasi model regresi linier yang kita dapatkan yaitu 0.894147363457703 atau 89%.
 
 Selanjutnya kita akan Membuat inputan model regresi linier
 ```python
@@ -273,7 +273,7 @@ Pada bagian ini saya menggunakan R^2 score sebagai Metric evaluasi.
 ```python
 from sklearn.metrics import r2_score
 
-features = ['Person ID', 'Age', 'Sleep Duration', 'Physical Activity Level', 'Stress Level', 'Heart Rate', 'Daily Steps']
+features = ['Age', 'Sleep Duration', 'Physical Activity Level', 'Stress Level', 'Heart Rate', 'Daily Steps']
 x = df[features]
 y = df['Quality of Sleep']
 
@@ -287,7 +287,7 @@ r_squared = r2_score(y, y_pred)
 # Menampilkan R-squared
 print("R-squared (R^2):", r_squared)
 ```
-Nilai R-squared sekitar 0.9115004951252951 menunjukkan bahwa sekitar 91.15% variasi dalam variabel target ("Quality of Sleep") dapat dijelaskan oleh fitur-fitur yang telah dimodelkan. Nilai R-squared yang tinggi (mendekati 1) menunjukkan bahwa model Anda sangat baik dalam menjelaskan variasi dalam data. Model ini cocok dengan data dengan sangat baik dan memiliki kemampuan prediksi yang tinggi untuk variabel target "Quality of Sleep" berdasarkan fitur-fitur yang digunakan.
+Nilai R-squared sekitar 0.9090913746224099 menunjukkan bahwa sekitar 90% variasi dalam variabel target ("Quality of Sleep") dapat dijelaskan oleh fitur-fitur yang telah dimodelkan. Nilai R-squared yang tinggi (mendekati 1) menunjukkan bahwa model Anda sangat baik dalam menjelaskan variasi dalam data. Model ini cocok dengan data dengan sangat baik dan memiliki kemampuan prediksi yang tinggi untuk variabel target "Quality of Sleep" berdasarkan fitur-fitur yang digunakan.
 
 ## Deployment
 
