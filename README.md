@@ -217,7 +217,7 @@ untuk tahap selanjutnya yaitu tahap modeling.
 Langkah pertama adalah seleksi fitur, kita akan memilih kolom apa yang dijadikan fitur dan kolom apa yang dijadikan target.
 
 ```python
-features = ['Person ID', 'Age',	'Sleep Duration',	'Physical Activity Level',	'Stress Level',	'Heart Rate',	'Daily Steps']
+features = ['Age',	'Sleep Duration',	'Physical Activity Level',	'Stress Level',	'Heart Rate',	'Daily Steps']
 x = df[features]
 y = df['Quality of Sleep']
 x.shape, y.shape
