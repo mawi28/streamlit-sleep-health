@@ -22,6 +22,6 @@ predict = ''
 
 if st.button('Estimasi Nilai kualitas tidur'):
     predict = model.predict(
-        [[Person_ID, Age, Sleep_Duration, Physical_Activity_Level, Stress_Level, Heart_Rate, Daily_Steps]]
+        [[Age, Sleep_Duration, Physical_Activity_Level, Stress_Level, Heart_Rate, Daily_Steps]]
     )
     st.write('Nilai kualitas tidur :', int(predict[0]))
